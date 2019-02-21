@@ -19,7 +19,7 @@
 			}else{
 				document.getElementById("div_error").style.display = 'none';
 				document.getElementById("tipo_reporte").value = $accion;
-				var url = "http://localhost:8000/informe";
+				var url = "http://universal-profits.com/agencemr/informe";
 		        $.ajax({                        
 		           type: "POST",                 
 		           url: url,                     
@@ -38,6 +38,16 @@
 		}
 	</script>
 	
+	<div class="row">
+		@if (Session::has('msj'))
+			<div class="col-md-2"></div>
+	        <div class="alert alert-danger">
+	            <strong>{{Session::get('msj')}}</strong>
+	        </div>
+	        <div class="col-md-2"></div>
+	    @endif
+	</div>
+
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8 alert alert-danger" id="div_error" style="display: none;">
@@ -83,12 +93,13 @@
 						</table>
 					</div>
 					
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
 						<center>
+							<strong>DESDE</strong><br>
 							<div class="form-group">
 		                    	<label for="ex3">Mes</label>
-		                    	<select class="form-control" name="mes">
+		                    	<select class="form-control" name="mes_inicial">
 											<option value="01">Enero</option>
 											<option value="02">Febrero</option>
 											<option value="03">Marzo</option>
@@ -106,11 +117,41 @@
 		                  	
 		                  	<div class="form-group">
 		                    	<label for="ex4">Año</label>
-		                   		<select class="form-control" name="ano">
-											@for ($i = 2019; $i >= 2000; $i--){
-												<option value="{{ $i }}">{{ $i }}</option>
-											@endfor
-										</select>
+		                   		<select class="form-control" name="ano_inicial">
+									@for ($i = 2019; $i >= 2000; $i--){
+										<option value="{{ $i }}">{{ $i }}</option>
+									@endfor
+								</select>
+		                  	</div>	
+							
+							<div class="ln_solid"></div>
+							
+							<strong>HASTA</strong><br>
+							<div class="form-group">
+		                    	<label for="ex3">Mes</label>
+		                    	<select class="form-control" name="mes_final">
+											<option value="01">Enero</option>
+											<option value="02">Febrero</option>
+											<option value="03">Marzo</option>
+											<option value="04">Abril</option>
+											<option value="05">Mayo</option>
+											<option value="06">Junio</option>
+											<option value="07">Julio</option>
+											<option value="08">Agosto</option>
+											<option value="09">Septiembre</option>
+											<option value="10">Octubre</option>
+											<option value="11">Noviembre</option>
+											<option value="12">Diciembre</option>
+								</select>
+		                  	</div>
+		                  	
+		                  	<div class="form-group">
+		                    	<label for="ex4">Año</label>
+		                   		<select class="form-control" name="ano_final">
+									@for ($i = 2019; $i >= 2000; $i--){
+										<option value="{{ $i }}">{{ $i }}</option>
+									@endfor
+								</select>
 		                  	</div>	
 
 		                  	<div class="ln_solid"></div>
@@ -122,7 +163,7 @@
 	                  		</div>	
 		                </center>
 					</div>
-					<div class="col-md-3"></div>
+					<div class="col-md-2"></div>
 				</div>
 			</div>
 		</form> 

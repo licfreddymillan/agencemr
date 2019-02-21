@@ -1,6 +1,6 @@
 <div class="x_panel">
 	<div class="x_title">
-	    <h2>Informe de Consultores</h2>
+	    <h2>Informe de Consultores. Período({{ date('d/m/Y', strtotime($fechaInicial)) }} - {{ date('d/m/Y', strtotime($fechaFinal)) }})</h2>
 	    <div class="clearfix"></div>
 	</div>
 	<div class="x_content">

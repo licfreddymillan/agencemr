@@ -1,6 +1,6 @@
 <div class="x_panel">
 	<div class="x_title">
-	    <h2>Porcentaje de Ganancias</h2>
+	    <h2>Porcentaje de Ganancias. Período({{ date('d/m/Y', strtotime($fechaInicial)) }} - {{ date('d/m/Y', strtotime($fechaFinal)) }})</h2>
 	    <div class="clearfix"></div>
 	</div>
 	<div class="x_content">
